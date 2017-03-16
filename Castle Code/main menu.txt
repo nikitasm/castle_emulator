@@ -1,0 +1,267 @@
+Imports System.Media
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Public Class FormMainMenu
+    Dim MySqlConn As MySqlConnection
+    Dim COMMANDS As MySqlCommand
+    Dim male As String
+    Dim female As String
+
+    Private Sub FormMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        GetUserName()
+    End Sub
+
+    Public Sub GetUserName()
+        If FormDungeonControl.CheckBoxCon.Checked = True Then
+            MySqlConn = New MySqlConnection
+            MySqlConn.ConnectionString = "server=localhost;userid=root;password=root;database=mydb"
+            Dim RD As MySqlDataReader
+            Try
+                MySqlConn.Open()
+
+                Dim QueryS As String
+                QueryS = "select people.name from people where username='" & FormDungeonControl.TextBox1.Text & "' "
+
+                COMMANDS = New MySqlCommand(QueryS, MySqlConn)
+
+                RD = COMMANDS.ExecuteReader
+
+                While RD.Read
+                    TextBoxName.Text = ("Welcome, " & RD.Item("name"))
+
+                End While
+                RD.Close()
+
+
+
+
+            Catch ex As Exception
+                MsgBox("fail" & vbCrLf & ex.Message)
+            End Try
+            MySqlConn.Close()
+        End If
+    End Sub
+
+    Private Sub ButtonnContact_MouseHover(sender As Object, e As EventArgs) Handles ButtonContact.MouseHover
+
+        PictureBoxMMM.Hide()
+        PictureBoxMRM.Hide()
+        PictureBoxDep.Hide()
+
+
+    End Sub
+
+    Private Sub ButtonnProvi_MouseHover(sender As Object, e As EventArgs)
+
+        PictureBoxMMM.Hide()
+        PictureBoxMRM.Hide()
+        PictureBoxDep.Hide()
+
+
+    End Sub
+
+    Private Sub ButtonnLOgO_MouseHover(sender As Object, e As EventArgs) Handles ButtonLogOut.MouseHover
+
+        PictureBoxMMM.Hide()
+        PictureBoxMRM.Hide()
+        PictureBoxDep.Hide()
+
+
+    End Sub
+
+    Private Sub ButtonnCastMap_MouseHover(sender As Object, e As EventArgs) Handles ButtonShowCaslteMap.MouseHover
+
+        PictureBoxMMM.Hide()
+        PictureBoxMRM.Hide()
+        PictureBoxDep.Hide()
+
+
+    End Sub
+
+    Private Sub FormMainMenu_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+
+        PictureBoxMMM.Hide()
+        PictureBoxMRM.Hide()
+        PictureBoxDep.Hide()
+
+
+    End Sub
+
+
+    Private Sub LinkLabelMMM_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMMM.MouseHover
+        PictureBoxMMM.BringToFront()
+        PictureBoxMMM.Show()
+
+        PictureBoxMRM.Hide()
+        PictureBoxDep.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelMRM_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMRM.MouseHover
+        PictureBoxMRM.BringToFront()
+        PictureBoxMRM.Show()
+
+        PictureBoxMMM.Hide()
+        PictureBoxDep.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelDep_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelDep.MouseHover
+        PictureBoxDep.BringToFront()
+        PictureBoxDep.Show()
+
+        PictureBoxMMM.Hide()
+        PictureBoxMRM.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxMRM_Click(sender As Object, e As EventArgs) Handles PictureBoxMRM.Click
+        FormMyRoom.ButtonBack.Enabled = True
+        FormMyRoom.ButtonBack.Visible = True
+        FormMyRoom.ButtonBack.BringToFront()
+        FormMyRoom.ButtonBackMSt.Enabled = False
+        FormMyRoom.ButtonBackMSt.Visible = False
+        FormMyRoom.ButtonBackMSt.SendToBack()
+        FormMoat.ButtonBackM.Enabled = True
+        FormMoat.ButtonBackM.Visible = True
+        FormMoat.ButtonBackMS.SendToBack()
+        FormMoat.ButtonBackMS.Enabled = False
+        FormMoat.ButtonBackMS.Visible = False
+        FormMoat.ButtonBackM.BringToFront()
+        FormMyRoom.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxMMM_Click(sender As Object, e As EventArgs) Handles PictureBoxMMM.Click
+        FormMoat.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub PictureBoxDep_Click(sender As Object, e As EventArgs) Handles PictureBoxDep.Click
+        FormDep.Show()
+        Me.Hide()
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+    Private Sub ButtonContact_Click(sender As Object, e As EventArgs) Handles ButtonContact.Click
+        FormContact.Show()
+
+    End Sub
+
+    Private Sub ButtonLogOut_Click(sender As Object, e As EventArgs) Handles ButtonLogOut.Click
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do you really want to Log Out?", "Log Out", MessageBoxButtons.YesNo)
+        If dialog = Windows.Forms.DialogResult.Yes Then
+
+            FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+            FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+            FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+            FormDungeonControl.TextBox1.Text = "Usename"
+            FormDungeonControl.TextBox2.Text = "Password"
+            FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+            FormDungeonControl.TextBoxT.Text = ""
+            TextBoxName.Text = ""
+            FormDungeonControl.Refresh()
+            FormDungeonControl.Show()
+            Me.Hide()
+        End If
+    End Sub
+
+
+    Private Sub ButtonShowCaslteMap_Click(sender As Object, e As EventArgs) Handles ButtonShowCaslteMap.Click
+        FormMap.ButtonBack.Enabled = True
+        FormMap.ButtonBack.Visible = True
+        FormMap.ButtonBack.BringToFront()
+        FormMap.ButtonBackS.Enabled = False
+        FormMap.ButtonBackS.Visible = False
+        FormMap.ButtonBackS.SendToBack()
+        FormMap.Show()
+        Me.Hide()
+
+    End Sub
+
+
+
+
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox1.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+
+    Private Sub LogOutToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+
+   
+   
+
+    Shared Sub ButtonSM_Click(sender As Object, Optional p2 As Object = Nothing, Optional e As EventArgs = Nothing)
+        Throw New NotImplementedException
+    End Sub
+
+    Private Sub ButtonSM_Click(sender As Object, e As EventArgs) Handles ButtonSM.Click
+
+        FormBath.TextBox1.Text = "1"
+        FormKitchen.TextBox1.Text = "1"
+        FormMainBedroom.TextBox1.Text = "1"
+        FormSecBedroom.TextBox1.Text = "1"
+        FormMoat.TextBox1.Text = "1"
+        FormSittingRoom.TextBox1.Text = "1"
+
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do you really want to enable Sleep Mode?", "Sleep Mode", MessageBoxButtons.YesNo)
+        If dialog = Windows.Forms.DialogResult.Yes Then
+            MsgBox("Sleep Mode Enabled!")
+           
+        End If
+
+    End Sub
+End Class

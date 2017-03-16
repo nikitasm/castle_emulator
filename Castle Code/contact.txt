@@ -1,0 +1,125 @@
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Public Class FormContact
+    Dim MySqlConn As MySqlConnection
+    Dim COMMANDS As MySqlCommand
+
+    Private Sub FormContact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        GetUserSex()
+    End Sub
+
+    Private Sub GetUserSex()
+        If FormDungeonControl.CheckBoxCon.Checked = True Then
+            MySqlConn = New MySqlConnection
+            MySqlConn.ConnectionString = "server=localhost;userid=root;password=root;database=mydb"
+            Dim RD As MySqlDataReader
+            Try
+
+                MySqlConn.Open()
+
+                Dim QueryS As String
+                QueryS = "select people.sex from people where username='" & FormDungeonControl.TextBox1.Text & "' "
+
+                COMMANDS = New MySqlCommand(QueryS, MySqlConn)
+
+                RD = COMMANDS.ExecuteReader
+
+                While RD.Read
+                    TextBoxS.Text = RD.Item("sex")
+                    If TextBoxS.Text = LabelMale.Text Then
+                        PictureBoxStufP.BringToFront()
+                        PictureBoxStufP.Show()
+                        PictureBoxStuffK.Hide()
+                        PictureBoxStuffK.SendToBack()
+                        LinkLabelHello.SendToBack()
+                    ElseIf TextBoxS.Text = LabelFemale.Text Then
+                        PictureBoxStuffK.BringToFront()
+                        PictureBoxStuffK.Show()
+                        PictureBoxStufP.Hide()
+                        PictureBoxStufP.SendToBack()
+
+                    End If
+
+                End While
+                RD.Close()
+
+
+            Catch ex As Exception
+                MsgBox("fail" & vbCrLf & ex.Message)
+                MySqlConn.Close()
+
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub ButtonSubmit_Click(sender As Object, e As EventArgs) Handles ButtonSubmit.Click
+        Try
+            MsgBox("Message Delivered: " & (RichTextBoxMessage.Text).ToString)
+            LabelMessage.Text = "Thank You!!"
+
+        Catch
+            MsgBox("Enter A Correct Message")
+            RichTextBoxMessage.Clear()
+            RichTextBoxMessage.Focus()
+
+        End Try
+    End Sub
+
+
+    Private Sub ButtonClear_Click(sender As Object, e As EventArgs) Handles ButtonClear.Click
+        Clear()
+    End Sub
+
+    Private Sub Clear()
+        RichTextBoxMessage.Clear()
+        RichTextBoxMessage.Focus()
+    End Sub
+
+    Private Sub ButtonBackC_Click(sender As Object, e As EventArgs) Handles ButtonBackC.Click
+
+        Me.Hide()
+    End Sub
+
+
+    Private Sub ButtonBackC2_Click(sender As Object, e As EventArgs) Handles ButtonBackC2.Click
+
+        Me.Hide()
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBoxCasPro.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+End Class

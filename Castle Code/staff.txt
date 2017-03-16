@@ -1,0 +1,336 @@
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Public Class FormStaff
+    Dim m As Integer
+    Dim MySqlConn As MySqlConnection
+    Dim MySqlConnSA As MySqlConnection
+    Dim COMMAND As MySqlCommand
+    Dim COMMANDSA As MySqlCommand
+    Dim COMMANDSW As MySqlCommand
+    Private Sub FormStaff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBoxRo.Visible = False
+        LabelRo.Visible = False
+        ButtonRo.Visible = False
+    End Sub
+    Private Sub ButtonSave_EnabledChange(sender As Object, e As EventArgs) Handles ButtonSave.EnabledChanged
+        If TextBoxid.Text = "" Or TextBoxname.Text = "" Or TextBoxusername.Text = "" Or TextBoxsurname.Text = "" Or TextBoxpassword.Text = "" Or TextBoxsex.Text = "" Or TextBoxtype.Text = "" Then
+            ButtonSave.Enabled = True
+        Else
+            ButtonSave.Enabled = False
+
+        End If
+    End Sub
+
+
+
+    Public Sub GetStaffSex()
+        MySqlConn = New MySqlConnection
+        MySqlConn.ConnectionString = "server=localhost;userid=root;password=root;database=mydb"
+        Dim RD As MySqlDataReader
+        Try
+            MySqlConn.Open()
+
+            Dim QueryS As String
+            QueryS = "select people.sex from people where username='" & FormDungeonControl.TextBox1.Text & "' "
+
+            COMMANDSW = New MySqlCommand(QueryS, MySqlConn)
+
+            RD = COMMANDSW.ExecuteReader
+
+            While RD.Read
+                TextBoxSW.Text = RD.Item("sex")
+                If TextBoxSW.Text = LabelMaleSW.Text Then
+                    LabelSWK.Show()
+                    LabelSWP.Hide()
+                    LabelSWK.BringToFront()
+                    LabelSWP.SendToBack()
+                    LinkLabelSW.SendToBack()
+                    PictureBoxSWK.BringToFront()
+                    PictureBoxSWK.Show()
+                    PictureBoxSWP.Hide()
+                    PictureBoxSWP.SendToBack()
+
+                ElseIf TextBoxSW.Text = LabelFemaleSW.Text Then
+
+                    LabelSWK.Hide()
+                    LabelSWP.Show()
+                    LabelSWP.BringToFront()
+                    LabelSWK.SendToBack()
+                    LinkLabelSW.SendToBack()
+                    PictureBoxSWP.BringToFront()
+                    PictureBoxSWP.Show()
+                    PictureBoxSWK.Hide()
+                    PictureBoxSWK.SendToBack()
+
+
+                End If
+
+            End While
+            RD.Close()
+
+
+        Catch ex As Exception
+            MsgBox("fail" & vbCrLf & ex.Message)
+        End Try
+        MySqlConn.Close()
+    End Sub
+
+    Private Sub TextBoxsex_TextChanged(sender As Object, e As EventArgs) Handles DomainUpDownsex.SelectedItemChanged
+        TextBoxsex.Text = DomainUpDownsex.SelectedItem
+
+    End Sub
+
+    Private Sub TextBoxtype_TextChanged(sender As Object, e As EventArgs) Handles DomainUpDowntype.SelectedItemChanged
+        TextBoxtype.Text = DomainUpDowntype.SelectedItem
+
+    End Sub
+
+
+    Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
+        m = 0
+        Dim QuerySave As String
+        QuerySave = "INSERT INTO `mydb`.`people` (`id`, `name`, `username`, `surname`, `password`, `sex`, `room`, `type`) VALUES ('" & TextBoxid.Text & "', '" & TextBoxname.Text & "', '" & TextBoxusername.Text & "', '" & TextBoxsurname.Text & "', '" & TextBoxpassword.Text & "', '" & TextBoxsex.Text & "', '" & TextBoxroom.Text & "', '" & TextBoxtype.Text & "');"
+        TextBoxQuery.Text = QuerySave
+        People()
+        If m = 1 Then
+            MessageBox.Show("Succeded!!")
+        End If
+
+    End Sub
+
+    Private Sub ButtonShowAll_Click(sender As Object, e As EventArgs) Handles ButtonSA.Click
+        Dim QueryShowAll As String
+        QueryShowAll = "select * from mydb.people "
+        TextBoxQuery.Text = QueryShowAll
+        People()
+    End Sub
+
+    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do you really want to Delete User?", "Delete User", MessageBoxButtons.YesNo)
+        If dialog = Windows.Forms.DialogResult.Yes Then
+            Dim QueryDelete As String
+            QueryDelete = "DELETE from mydb.people where id='" & TextBoxDeleteId.Text & "'"
+            TextBoxQuery.Text = QueryDelete
+            People()
+            If m = 1 Then
+                MessageBox.Show("User Deleted!")
+                TextBoxDeleteId.Text = ""
+                Me.Refresh()
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub People()
+        MySqlConnSA = New MySqlConnection
+        MySqlConnSA.ConnectionString = "server=localhost;userid=root;password=root;database=mydb"
+        Dim SDASA As New MySqlDataAdapter
+        Dim dbDataSetSA As New DataTable
+        Dim bSourceSA As New BindingSource
+
+        Try
+            MySqlConnSA.Open()
+            Dim QueryMain As String
+            QueryMain = TextBoxQuery.Text
+            COMMANDSA = New MySqlCommand(QueryMain, MySqlConnSA)
+            SDASA.SelectCommand = COMMANDSA
+            SDASA.Fill(dbDataSetSA)
+            bSourceSA.DataSource = dbDataSetSA
+            DataGridViewSA.DataSource = bSourceSA
+            SDASA.Update(dbDataSetSA)
+
+            m = 1
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            MySqlConnSA.Dispose()
+
+        End Try
+        TextBoxSW.Text = ""
+        TextBoxid.Text = ""
+        TextBoxname.Text = ""
+        TextBoxusername.Text = ""
+        TextBoxsurname.Text = ""
+        TextBoxpassword.Text = ""
+        TextBoxsex.Text = ""
+        TextBoxroom.Text = ""
+        TextBoxtype.Text = ""
+
+    End Sub
+
+    Private Sub ButtonLogoutSt_Click(sender As Object, e As EventArgs) Handles ButtonLogoutSt.Click
+
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        DataGridViewSA.DataSource = ""
+        TextBoxSW.Text = ""
+        TextBoxid.Text = ""
+        TextBoxname.Text = ""
+        TextBoxusername.Text = ""
+        TextBoxsurname.Text = ""
+        TextBoxpassword.Text = ""
+        TextBoxsex.Text = ""
+        TextBoxroom.Text = ""
+        TextBoxtype.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+
+    End Sub
+
+
+
+
+    Private Sub LinkLabelContCB_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelContCB.LinkClicked
+        FormCoffeeBar.NumericUpDownaircb.Enabled = True
+        FormCoffeeBar.PictureBoxAircb.Enabled = True
+        FormCoffeeBar.PictureBoxMainLightscb.Enabled = True
+        FormCoffeeBar.PictureBoxSeclicb.Enabled = True
+        FormCoffeeBar.PictureBoxTVcb.Enabled = True
+        FormCoffeeBar.PictureBoxSScb.Enabled = True
+        FormCoffeeBar.LinkLabelPa.Enabled = False
+        FormCoffeeBar.PictureBoxPa.Enabled = False
+        FormCoffeeBar.PictureBoxPa.Enabled = False
+        FormCoffeeBar.DomainUpDownPa.Enabled = False
+        FormCoffeeBar.ButtonPas.Enabled = False
+        FormCoffeeBar.LinkLabelAircb.Enabled = True
+        FormCoffeeBar.LinkLabelMainLightscb.Enabled = True
+        FormCoffeeBar.LinkLabelSeclicb.Enabled = True
+        FormCoffeeBar.LinkLabelTVcb.Enabled = True
+        FormCoffeeBar.LinkLabelSScb.Enabled = True
+        FormCoffeeBar.DomainUpDownTVcb.Enabled = True
+        FormCoffeeBar.DomainUpDownSlcb.Enabled = True
+        FormCoffeeBar.DomainUpDownSScb.Enabled = True
+        FormCoffeeBar.DomainUpDownMlcb.Enabled = True
+        FormCoffeeBar.ButtonBackCBCust.Enabled = False
+        FormCoffeeBar.ButtonBackCBCust.Visible = False
+        FormCoffeeBar.ButtonBackCBCust.SendToBack()
+        FormCoffeeBar.ButtonBackCBStaf.Enabled = True
+        FormCoffeeBar.ButtonBackCBStaf.Visible = True
+        FormCoffeeBar.ButtonBackCBStaf.BringToFront()
+        FormCoffeeBar.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub LinkLabelContR_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelContRest.LinkClicked
+        FormRestaurant.NumericUpDownAR.Enabled = True
+        FormRestaurant.PictureBoxAirR.Enabled = True
+        FormRestaurant.PictureBoxMenuR.Enabled = True
+        FormRestaurant.PictureBoxSeclightsR.Enabled = True
+        FormRestaurant.PictureBoxTVR.Enabled = True
+        FormRestaurant.PictureBoxSSR.Enabled = True
+        FormRestaurant.LinkLabelPaR.Enabled = False
+        FormRestaurant.PictureBoxPaR.Enabled = False
+        FormRestaurant.PictureBoxPaR.Enabled = False
+        FormRestaurant.DomainUpDownPaR.Enabled = False
+        FormRestaurant.ButtonPasR.Enabled = False
+        FormRestaurant.LinkLabelAirR.Enabled = True
+        FormRestaurant.LinkLabelMainLightsR.Enabled = True
+        FormRestaurant.LinkLabelSeclightsR.Enabled = True
+        FormRestaurant.LinkLabelTVR.Enabled = True
+        FormRestaurant.LinkLabelSSR.Enabled = True
+        FormRestaurant.DomainUpDownTVR.Enabled = True
+        FormRestaurant.DomainUpDownSlR.Enabled = True
+        FormRestaurant.DomainUpDownSSR.Enabled = True
+        FormRestaurant.DomainUpDownMlR.Enabled = True
+        FormRestaurant.ButtonBackRCust.Enabled = False
+        FormRestaurant.ButtonBackRCust.Visible = False
+        FormRestaurant.ButtonBackRCust.BringToFront()
+        FormRestaurant.ButtonBackRStaf.Enabled = True
+        FormRestaurant.ButtonBackRStaf.Visible = True
+        FormRestaurant.ButtonBackRStaf.SendToBack()
+        FormRestaurant.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub LinkLabelContRoom_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelContRoom.LinkClicked
+        TextBoxRo.Visible = True
+        LabelRo.Visible = True
+        ButtonRo.Visible = True
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox1.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+
+    Private Sub LinkLabelStaffMap_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelStaffMap.LinkClicked
+        FormMap.ButtonBack.Enabled = False
+        FormMap.ButtonBack.Visible = False
+        FormMap.ButtonBack.SendToBack()
+        FormMap.ButtonBackS.Enabled = True
+        FormMap.ButtonBackS.Visible = True
+        FormMap.ButtonBackS.BringToFront()
+        FormMap.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub ButtonRo_Click(sender As Object, e As EventArgs) Handles ButtonRo.Click
+        If TextBoxRo.Text = "" Then
+            MessageBox.Show("Insert a Room Number!")
+        Else
+            FormMyRoom.ButtonBack.Enabled = False
+            FormMyRoom.ButtonBack.Visible = False
+            FormMyRoom.ButtonBack.SendToBack()
+            FormMyRoom.ButtonBackMSt.Enabled = True
+            FormMyRoom.ButtonBackMSt.Visible = True
+            FormMyRoom.ButtonBackMSt.BringToFront()
+            FormMoat.ButtonBackM.Enabled = False
+            FormMoat.ButtonBackM.Visible = False
+            FormMoat.ButtonBackM.SendToBack()
+            FormMoat.ButtonBackMS.Enabled = True
+            FormMoat.ButtonBackMS.Visible = True
+            FormMoat.ButtonBackMS.BringToFront()
+            FormMyRoom.Show()
+            Me.Hide()
+        End If
+    End Sub
+
+   
+End Class

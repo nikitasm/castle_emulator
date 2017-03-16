@@ -1,0 +1,214 @@
+Public Class FormMyRoom
+
+
+    Private Sub FormMainBedroom_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub FormMyRoom_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub ButtonBack_MouseHover(sender As Object, e As EventArgs) Handles ButtonBack.MouseHover
+
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub ButtonBackMst_MouseHover(sender As Object, e As EventArgs) Handles ButtonBackMSt.MouseHover
+
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxMBR_Click(sender As Object, e As EventArgs) Handles PictureBoxMBR.Click
+        FormMainBedroom.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxSBR_Click(sender As Object, e As EventArgs) Handles PictureBoxSBR.Click
+        FormSecBedroom.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxSR_Click(sender As Object, e As EventArgs) Handles PictureBoxSR.Click
+        FormSittingRoom.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxKR_Click(sender As Object, e As EventArgs) Handles PictureBoxKR.Click
+        FormKitchen.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxBR_Click(sender As Object, e As EventArgs) Handles PictureBoxBR.Click
+        FormBath.Show()
+        Me.Hide()
+
+    End Sub
+
+
+    Private Sub ButtonBack_Click(sender As Object, e As EventArgs) Handles ButtonBack.Click
+        FormMainMenu.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub ButtonBackMStaff_Click(sender As Object, e As EventArgs) Handles ButtonBackMSt.Click
+        FormStaff.Show()
+        Me.Hide()
+
+    End Sub
+
+
+
+
+    Private Sub LinkLabelMBR_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMBR.MouseHover
+        PictureBoxMBR.BringToFront()
+        PictureBoxMBR.Show()
+
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelSBR_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelSBR.MouseHover
+        PictureBoxSBR.BringToFront()
+        PictureBoxSBR.Show()
+        PictureBoxMBR.Hide()
+
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelSR_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelSR.MouseHover
+        PictureBoxSR.BringToFront()
+        PictureBoxSR.Show()
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+
+        PictureBoxBR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelBR_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelBR.MouseHover
+        PictureBoxBR.BringToFront()
+        PictureBoxBR.Show()
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+
+        PictureBoxKR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelKR_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelKR.MouseHover
+        PictureBoxKR.BringToFront()
+        PictureBoxKR.Show()
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+        PictureBoxMoat.Hide()
+        PictureBoxMoat.Hide()
+
+
+    End Sub
+
+    Private Sub LinkLabelMoat_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMoat.MouseHover
+        PictureBoxMoat.BringToFront()
+        PictureBoxMoat.Show()
+        PictureBoxKR.Hide()
+        PictureBoxKR.Hide()
+        PictureBoxMBR.Hide()
+        PictureBoxSBR.Hide()
+        PictureBoxSR.Hide()
+        PictureBoxBR.Hide()
+    End Sub
+
+    Private Sub PictureBoxMoat_Click(sender As Object, e As EventArgs) Handles PictureBoxMoat.Click
+        FormMoat.Show()
+        Me.Hide()
+
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox1.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+End Class

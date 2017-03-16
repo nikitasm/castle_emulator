@@ -1,0 +1,552 @@
+Public Class FormKitchen
+
+    
+
+    Private Sub ButtonBackK_Click(sender As Object, e As EventArgs) Handles ButtonBackK.Click
+        FormMyRoom.Show()
+        Me.Hide()
+    End Sub
+
+
+
+
+
+    Private Sub LinkLabelFridge_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelFridge.MouseHover
+        PictureBoxFridge.BringToFront()
+        PictureBoxFridge.Show()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+    Private Sub FormKitchen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If TextBox1.Text = "1" Then
+            FormMainMenu.Sleep_Mode()
+        End If
+    End Sub
+
+    Private Sub FormKitchen_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+        TextBox1.Text = ""
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+
+
+
+    End Sub
+
+    Private Sub ButtonBackK_MouseHover(sender As Object, e As EventArgs) Handles ButtonBackK.MouseHover
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+
+
+
+    End Sub
+
+    Private Sub PictureBoxFridge_Click(sender As Object, e As EventArgs) Handles PictureBoxFridge.Click
+        LabelTempF.Show()
+        NumericUpDownFridge.Show()
+
+    End Sub
+
+
+
+
+    Private Sub LinkLabelMainLights_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMainLightsK.MouseHover
+        PictureBoxMainLights.BringToFront()
+        PictureBoxMainLights.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+
+
+
+
+    Private Sub LinkLabelOven_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelOven.MouseHover
+        PictureBoxOven.BringToFront()
+        PictureBoxOven.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+    Private Sub LinkLabelMicrowave_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMicrowave.MouseHover
+        PictureBoxMicrowave.BringToFront()
+        PictureBoxMicrowave.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelSeclights_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelSeclightsK.MouseHover
+        PictureBoxSeclights.BringToFront()
+        PictureBoxSeclights.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+    Private Sub LinkLabelTVK_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelTVK.MouseHover
+        PictureBoxTVK.BringToFront()
+        PictureBoxTVK.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+    Private Sub LinkLabelSSK_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelSSK.MouseHover
+        PictureBoxSSK.BringToFront()
+        PictureBoxSSK.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxHobs.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+
+    Private Sub LinkLabelHobs_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelHobsK.MouseHover
+        PictureBoxHobs.BringToFront()
+        PictureBoxHobs.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxAirK.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+    Private Sub LinkLabelAirK_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelAirK.MouseHover
+        PictureBoxAirK.BringToFront()
+        PictureBoxAirK.Show()
+        PictureBoxFridge.Hide()
+        NumericUpDownFridge.Hide()
+        LabelTempF.Hide()
+        PictureBoxMainLights.Hide()
+        PictureBoxOven.Hide()
+        PictureBoxMicrowave.Hide()
+        PictureBoxSeclights.Hide()
+        PictureBoxTVK.Hide()
+        PictureBoxSSK.Hide()
+        PictureBoxHobs.Hide()
+        LabelTempOK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        LabelTempMK.Hide()
+        NumericUpDownMK.Hide()
+        LabelMinK.Hide()
+        NumericUpDownMmK.Hide()
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+    End Sub
+
+
+    Private Sub PictureBoxOven_Click(sender As Object, e As EventArgs) Handles PictureBoxOven.Click
+        LabelTempOK.Show()
+        NumericUpDownOK.Show()
+
+    End Sub
+
+    Private Sub PictureBoxMicrowave_Click(sender As Object, e As EventArgs) Handles PictureBoxMicrowave.Click
+        LabelTempMK.Show()
+        NumericUpDownMK.Show()
+        LabelMinK.Show()
+        NumericUpDownMmK.Show()
+
+
+        LabelTempAK.Hide()
+        NumericUpDownAK.Hide()
+        LabelHobK.Hide()
+        NumericUpDownHK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+        DomainUpDownTVK.Hide()
+
+        DomainUpDownSSK.Hide()
+
+        DomainUpDownMlK.Hide()
+
+        DomainUpDownSlK.Hide()
+        LabelTempHK.Hide()
+        NumericUpDownTempHK.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxAirK_Click(sender As Object, e As EventArgs) Handles PictureBoxAirK.Click
+        LabelTempAK.Show()
+        NumericUpDownAK.Show()
+
+    End Sub
+
+    Private Sub PictureBoxHobs_Click(sender As Object, e As EventArgs) Handles PictureBoxHobs.Click
+
+        LabelHobK.Show()
+        NumericUpDownHK.Show()
+        LabelTempHK.Show()
+        NumericUpDownTempHK.Show()
+
+
+
+    End Sub
+
+    Private Sub PictureBoxTVK_Click(sender As Object, e As EventArgs) Handles PictureBoxTVK.Click
+
+
+        DomainUpDownTVK.Show()
+
+    End Sub
+
+    Private Sub PictureBoxSSK_Click(sender As Object, e As EventArgs) Handles PictureBoxSSK.Click
+
+
+        DomainUpDownSSK.Show()
+
+    End Sub
+
+    Private Sub PictureBoxMainlights_Click(sender As Object, e As EventArgs) Handles PictureBoxMainLights.Click
+
+
+        DomainUpDownMlK.Show()
+
+    End Sub
+
+    Private Sub PictureBoxSeclights_Click(sender As Object, e As EventArgs) Handles PictureBoxSeclights.Click
+
+
+        DomainUpDownSlK.Show()
+
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBoxCasPro.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+
+    
+End Class

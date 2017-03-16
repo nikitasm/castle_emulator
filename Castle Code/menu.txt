@@ -1,0 +1,27 @@
+Public Class FormMenu
+
+    Private Sub FormMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+       
+    End Sub
+
+   
+    
+    Private Sub ButtonBack_Click(sender As Object, e As EventArgs) Handles ButtonBack.Click
+        FormRestaurant.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub ButtonResetO_Click(sender As Object, e As EventArgs) Handles ButtonResetO.Click
+       
+            TextBoxMenuOr.Text = ""
+    End Sub
+
+    Private Sub ButtonSO_Click(sender As Object, e As EventArgs) Handles ButtonSO.Click
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do you really want to Send Your Order?", "Send Order", MessageBoxButtons.YesNo)
+        If dialog = Windows.Forms.DialogResult.Yes Then
+            MsgBox("Your Order is coming! Thank You!")
+        End If
+    End Sub
+End Class

@@ -1,0 +1,274 @@
+Public Class FormMoat
+    Private Sub PictureDM_Click(sender As Object, e As EventArgs) Handles PictureBoxDM.Click
+        PictureBoxDM.Image = Image.FromFile("C:\Users\Morpheus\Documents\Visual Studio 2012\Projects\castle emulator\castle emulator\Resources\drbdown2.gif")
+
+    End Sub
+
+
+
+    Private Sub ButtonBackM_Click(sender As Object, e As EventArgs) Handles ButtonBackM.Click
+        DomainUpDownAlarmM1.Text = "#"
+        DomainUpDownAlarmM2.Text = "#"
+        DomainUpDownAlarmM3.Text = "#"
+        DomainUpDownAlarmM4.Text = "#"
+        DomainUpDownAlarmM1.SelectedItem = "1"
+        DomainUpDownAlarmM2.SelectedItem = "1"
+        DomainUpDownAlarmM3.SelectedItem = "1"
+        DomainUpDownAlarmM4.SelectedItem = "1"
+        FormMainMenu.Show()
+
+        Me.Close()
+    End Sub
+
+    Private Sub ButtonBackMS_Click(sender As Object, e As EventArgs) Handles ButtonBackMS.Click
+        DomainUpDownAlarmM1.Text = "#"
+        DomainUpDownAlarmM2.Text = "#"
+        DomainUpDownAlarmM3.Text = "#"
+        DomainUpDownAlarmM4.Text = "#"
+        DomainUpDownAlarmM1.SelectedItem = "1"
+        DomainUpDownAlarmM2.SelectedItem = "1"
+        DomainUpDownAlarmM3.SelectedItem = "1"
+        DomainUpDownAlarmM4.SelectedItem = "1"
+        FormStaff.Show()
+
+        Me.Close()
+    End Sub
+
+    Private Sub FormMoat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If TextBox1.Text = "1" Then
+            FormMainMenu.Sleep_Mode()
+        End If
+        Dim rn As New Random
+        TextBoxHuman.Text = (rn.Next(0, 6) & " Human In Water")
+    End Sub
+
+    Private Sub FormMoat_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+        TextBox1.Text = ""
+        PictureBoxLightsM.Hide()
+        PictureBoxDM.Hide()
+
+        PictureBoxWaterM.Hide()
+
+        LabelTempWM.Hide()
+        NumericUpDownWM.Hide()
+        LabelLevelWM.Hide()
+        NumericUpDownLevelWM.Hide()
+        DomainUpDownDM.Hide()
+        DomainUpDownLM.Hide()
+        PictureBoxAlarmM.Hide()
+        DomainUpDownAlarmM1.Hide()
+        DomainUpDownAlarmM2.Hide()
+        DomainUpDownAlarmM3.Hide()
+        DomainUpDownAlarmM4.Hide()
+    End Sub
+
+    Private Sub ButtonBackM_MouseHover(sender As Object, e As EventArgs) Handles ButtonBackM.MouseHover
+
+        PictureBoxLightsM.Hide()
+        PictureBoxDM.Hide()
+
+        PictureBoxWaterM.Hide()
+
+        LabelTempWM.Hide()
+        NumericUpDownWM.Hide()
+        LabelLevelWM.Hide()
+        NumericUpDownLevelWM.Hide()
+        DomainUpDownDM.Hide()
+        DomainUpDownLM.Hide()
+        PictureBoxAlarmM.Hide()
+        DomainUpDownAlarmM1.Hide()
+        DomainUpDownAlarmM2.Hide()
+        DomainUpDownAlarmM3.Hide()
+        DomainUpDownAlarmM4.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelLightsM_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelLightsM.MouseHover
+
+        PictureBoxLightsM.BringToFront()
+        PictureBoxLightsM.Show()
+        PictureBoxDM.Hide()
+
+        PictureBoxWaterM.Hide()
+
+        LabelTempWM.Hide()
+        NumericUpDownWM.Hide()
+        LabelLevelWM.Hide()
+        NumericUpDownLevelWM.Hide()
+        DomainUpDownDM.Hide()
+        DomainUpDownLM.Hide()
+        PictureBoxAlarmM.Hide()
+        DomainUpDownAlarmM1.Hide()
+        DomainUpDownAlarmM2.Hide()
+        DomainUpDownAlarmM3.Hide()
+        DomainUpDownAlarmM4.Hide()
+    End Sub
+
+    Private Sub LinkLabelAlarmM_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelAlarmM.MouseHover
+
+        PictureBoxAlarmM.BringToFront()
+        PictureBoxAlarmM.Show()
+        PictureBoxDM.Hide()
+
+        PictureBoxWaterM.Hide()
+
+        LabelTempWM.Hide()
+        NumericUpDownWM.Hide()
+        LabelLevelWM.Hide()
+        NumericUpDownLevelWM.Hide()
+        DomainUpDownDM.Hide()
+        DomainUpDownLM.Hide()
+        PictureBoxLightsM.Hide()
+        DomainUpDownAlarmM1.Hide()
+        DomainUpDownAlarmM2.Hide()
+        DomainUpDownAlarmM3.Hide()
+        DomainUpDownAlarmM4.Hide()
+    End Sub
+
+    Private Sub LinkLabelDrawBridgeM_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelDM.MouseHover
+
+        PictureBoxDM.BringToFront()
+        PictureBoxDM.Show()
+        PictureBoxLightsM.Hide()
+
+        PictureBoxWaterM.Hide()
+
+        LabelTempWM.Hide()
+        NumericUpDownWM.Hide()
+        LabelLevelWM.Hide()
+        NumericUpDownLevelWM.Hide()
+        DomainUpDownDM.Hide()
+        DomainUpDownLM.Hide()
+        PictureBoxAlarmM.Hide()
+        DomainUpDownAlarmM1.Hide()
+        DomainUpDownAlarmM2.Hide()
+        DomainUpDownAlarmM3.Hide()
+        DomainUpDownAlarmM4.Hide()
+    End Sub
+
+
+    Private Sub LinkLabelWaterM_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelWaterM.MouseHover
+
+        PictureBoxWaterM.BringToFront()
+        PictureBoxWaterM.Show()
+        LabelLevelWM.Hide()
+        NumericUpDownLevelWM.Hide()
+        PictureBoxDM.Hide()
+
+        PictureBoxLightsM.Hide()
+
+        LabelTempWM.Hide()
+        NumericUpDownWM.Hide()
+
+        DomainUpDownDM.Hide()
+        DomainUpDownLM.Hide()
+        PictureBoxAlarmM.Hide()
+        DomainUpDownAlarmM1.Hide()
+        DomainUpDownAlarmM2.Hide()
+        DomainUpDownAlarmM3.Hide()
+        DomainUpDownAlarmM4.Hide()
+    End Sub
+
+    Private Sub PictureBoxWaterM_Click(sender As Object, e As EventArgs) Handles PictureBoxWaterM.Click
+        LabelTempWM.Show()
+        NumericUpDownWM.Show()
+        LabelLevelWM.Show()
+        NumericUpDownLevelWM.Show()
+    End Sub
+
+    Private Sub PictureDrawBridgeM_Click(sender As Object, e As EventArgs) Handles PictureBoxDM.Click
+        DomainUpDownDM.Show()
+
+    End Sub
+
+    Private Sub PictureLightsM_Click(sender As Object, e As EventArgs) Handles PictureBoxLightsM.Click
+        DomainUpDownLM.Show()
+
+    End Sub
+
+    Private Sub PictureAlarmM_Click(sender As Object, e As EventArgs) Handles PictureBoxAlarmM.Click
+
+        DomainUpDownAlarmM1.Show()
+        DomainUpDownAlarmM2.Show()
+        DomainUpDownAlarmM3.Show()
+        DomainUpDownAlarmM4.Show()
+
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBoxCasPro.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+
+    Private Sub DomainUpDownAlarmMnf_SelectedItemChanged()
+        If (DomainUpDownAlarmM1.SelectedItem = "1") And (DomainUpDownAlarmM2.SelectedItem = "2") And (DomainUpDownAlarmM3.SelectedItem = "3") And (DomainUpDownAlarmM4.SelectedItem = "4") Then
+            DomainUpDownAlarmMnf.Enabled = True
+        Else
+            DomainUpDownAlarmMnf.Enabled = False
+        End If
+    End Sub
+
+    Private Sub DomainUpDownAlarmM4_SelectedItemChanged(sender As Object, e As EventArgs) Handles DomainUpDownAlarmM4.SelectedItemChanged
+        Me.Refresh()
+        DomainUpDownAlarmMnf_SelectedItemChanged()
+    End Sub
+
+    Private Sub DomainUpDownAlarmM1_SelectedItemChanged(sender As Object, e As EventArgs) Handles DomainUpDownAlarmM1.SelectedItemChanged
+        Me.Refresh()
+        DomainUpDownAlarmMnf_SelectedItemChanged()
+    End Sub
+
+    Private Sub DomainUpDownAlarmM3_SelectedItemChanged(sender As Object, e As EventArgs) Handles DomainUpDownAlarmM3.SelectedItemChanged
+        Me.Refresh()
+        DomainUpDownAlarmMnf_SelectedItemChanged()
+    End Sub
+
+    Private Sub DomainUpDownAlarmM2_SelectedItemChanged(sender As Object, e As EventArgs) Handles DomainUpDownAlarmM2.SelectedItemChanged
+        Me.Refresh()
+        DomainUpDownAlarmMnf_SelectedItemChanged()
+    End Sub
+
+    Private Sub TextBoxHuman_TextChanged(sender As Object, e As EventArgs) Handles TextBoxHuman.TextChanged
+        
+    End Sub
+
+    
+End Class

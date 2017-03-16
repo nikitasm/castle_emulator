@@ -1,0 +1,166 @@
+Public Class FormDep
+    Private Sub FormDep_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+    Private Sub ButtonBackDep_Click(sender As Object, e As EventArgs) Handles ButtonBackDep.Click
+        FormMainMenu.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub FormDep_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+
+        PictureBoxDepCB.Hide()
+        PictureBoxDepRest.Hide()
+        PictureBoxDepES.Hide()
+
+
+    End Sub
+
+    Private Sub ButtonBackDep_MouseHover(sender As Object, e As EventArgs) Handles ButtonBackDep.MouseHover
+
+        PictureBoxDepCB.Hide()
+        PictureBoxDepRest.Hide()
+        PictureBoxDepES.Hide()
+
+
+    End Sub
+
+    Private Sub LinkLabelDepCB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelDepCB.MouseHover
+        PictureBoxDepCB.BringToFront()
+        PictureBoxDepCB.Show()
+
+        PictureBoxDepES.Hide()
+        PictureBoxDepRest.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelDepES_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelDepES.MouseHover
+        PictureBoxDepES.BringToFront()
+        PictureBoxDepES.Show()
+
+        PictureBoxDepCB.Hide()
+        PictureBoxDepRest.Hide()
+
+    End Sub
+
+    Private Sub LinkLabelDepRest_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelDepRest.MouseHover
+        PictureBoxDepRest.BringToFront()
+        PictureBoxDepRest.Show()
+
+        PictureBoxDepES.Hide()
+        PictureBoxDepCB.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxDepCB_Click(sender As Object, e As EventArgs) Handles PictureBoxDepCB.Click
+        FormCoffeeBar.NumericUpDownaircb.Enabled = False
+        FormCoffeeBar.PictureBoxAircb.Enabled = False
+        FormCoffeeBar.PictureBoxMainLightscb.Enabled = False
+        FormCoffeeBar.PictureBoxSeclicb.Enabled = False
+        FormCoffeeBar.PictureBoxTVcb.Enabled = False
+        FormCoffeeBar.PictureBoxSScb.Enabled = False
+        FormCoffeeBar.LinkLabelPa.Enabled = True
+        FormCoffeeBar.PictureBoxPa.Enabled = True
+        FormCoffeeBar.PictureBoxPa.Enabled = True
+        FormCoffeeBar.DomainUpDownPa.Enabled = True
+        FormCoffeeBar.ButtonPas.Enabled = True
+        FormCoffeeBar.LinkLabelAircb.Enabled = False
+        FormCoffeeBar.LinkLabelMainLightscb.Enabled = False
+        FormCoffeeBar.LinkLabelSeclicb.Enabled = False
+        FormCoffeeBar.LinkLabelTVcb.Enabled = False
+        FormCoffeeBar.LinkLabelSScb.Enabled = False
+        FormCoffeeBar.DomainUpDownTVcb.Enabled = False
+        FormCoffeeBar.DomainUpDownSlcb.Enabled = False
+        FormCoffeeBar.DomainUpDownSScb.Enabled = False
+        FormCoffeeBar.DomainUpDownMlcb.Enabled = False
+        FormCoffeeBar.ButtonBackCBCust.Enabled = True
+        FormCoffeeBar.ButtonBackCBCust.Visible = True
+        FormCoffeeBar.ButtonBackCBCust.BringToFront()
+        FormCoffeeBar.ButtonBackCBStaf.Enabled = False
+        FormCoffeeBar.ButtonBackCBStaf.Visible = False
+        FormCoffeeBar.ButtonBackCBStaf.SendToBack()
+        FormCoffeeBar.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub PictureBoxDepRest_Click(sender As Object, e As EventArgs) Handles PictureBoxDepRest.Click
+        FormRestaurant.NumericUpDownAR.Enabled = False
+        FormRestaurant.PictureBoxAirR.Enabled = False
+        FormRestaurant.PictureBoxMenuR.Enabled = False
+        FormRestaurant.PictureBoxSeclightsR.Enabled = False
+        FormRestaurant.PictureBoxTVR.Enabled = False
+        FormRestaurant.PictureBoxSSR.Enabled = False
+        FormRestaurant.LinkLabelPaR.Enabled = True
+        FormRestaurant.PictureBoxPaR.Enabled = True
+        FormRestaurant.PictureBoxPaR.Enabled = True
+        FormRestaurant.DomainUpDownPaR.Enabled = True
+        FormRestaurant.ButtonPasR.Enabled = True
+        FormRestaurant.LinkLabelAirR.Enabled = False
+        FormRestaurant.LinkLabelMainLightsR.Enabled = False
+        FormRestaurant.LinkLabelSeclightsR.Enabled = False
+        FormRestaurant.LinkLabelTVR.Enabled = False
+        FormRestaurant.LinkLabelSSR.Enabled = False
+        FormRestaurant.DomainUpDownTVR.Enabled = False
+        FormRestaurant.DomainUpDownSlR.Enabled = False
+        FormRestaurant.DomainUpDownSSR.Enabled = False
+        FormRestaurant.DomainUpDownMlR.Enabled = False
+        FormRestaurant.ButtonBackRCust.Enabled = True
+        FormRestaurant.ButtonBackRCust.Visible = True
+        FormRestaurant.ButtonBackRCust.BringToFront()
+        FormRestaurant.ButtonBackRStaf.Enabled = False
+        FormRestaurant.ButtonBackRStaf.Visible = False
+        FormRestaurant.ButtonBackRStaf.SendToBack()
+        FormRestaurant.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub PictureBoxDepES_Click(sender As Object, e As EventArgs) Handles PictureBoxDepES.Click
+        FormEshop.Show()
+        Me.Hide()
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBoxCasPro.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+End Class

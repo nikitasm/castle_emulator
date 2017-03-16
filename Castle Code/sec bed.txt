@@ -1,0 +1,304 @@
+Public Class FormSecBedroom
+
+    Private Sub ButtonBackS_Click(sender As Object, e As EventArgs) Handles ButtonBackS.Click
+        FormMyRoom.Show()
+        Me.Hide()
+    End Sub
+
+
+
+    Private Sub FormSecBedroom_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If TextBox1.Text = "1" Then
+            FormMainMenu.Sleep_Mode()
+        End If
+    End Sub
+
+    Private Sub FormSecBedroom_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+        TextBox1.Text = ""
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Hide()
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+
+
+
+    End Sub
+
+    Private Sub ButtonBackS_MouseHover(sender As Object, e As EventArgs) Handles ButtonBackS.MouseHover
+
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Hide()
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+
+
+
+    End Sub
+
+
+    Private Sub LinkLabelMainLightsSB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelMainLightsSB.MouseHover
+
+        PictureBoxMainLightsSB.BringToFront()
+        PictureBoxMainLightsSB.Show()
+
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Hide()
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+    End Sub
+
+
+
+    Private Sub LinkLabelFirePlaceSB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelFPSB.MouseHover
+
+        PictureBoxFPSB.BringToFront()
+        PictureBoxFPSB.Show()
+
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Hide()
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+    End Sub
+
+
+    Private Sub LinkLabelSeclightsSB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelSeclightsSB.MouseHover
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Show()
+        PictureBoxSeclightsSB.BringToFront()
+
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+
+
+    End Sub
+
+    Private Sub LinkLabelTVSB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelTVSB.MouseHover
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Show()
+        PictureBoxSeclightsSB.Hide()
+
+        PictureBoxTVSB.BringToFront()
+
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+    End Sub
+
+    Private Sub LinkLabelSSSB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelSSSB.MouseHover
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.BringToFront()
+
+        PictureBoxSSSB.Show()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Hide()
+        PictureBoxAirSB.Hide()
+        LabelTempASB.Hide()
+        NumericUpDownASB.Hide()
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+    End Sub
+
+
+
+    Private Sub LinkLabelAirSB_MouseHover(sender As Object, e As EventArgs) Handles LinkLabelAirSB.MouseHover
+        PictureBoxMainLightsSB.Hide()
+        PictureBoxSSSB.Hide()
+        PictureBoxTVSB.Hide()
+        PictureBoxSeclightsSB.Hide()
+        PictureBoxAirSB.BringToFront()
+        PictureBoxAirSB.Show()
+        LabelTempASB.Hide()
+
+        NumericUpDownASB.Hide()
+
+        PictureBoxFPSB.Hide()
+
+        DomainUpDownFPSB.Hide()
+
+        DomainUpDownTVSB.Hide()
+
+        DomainUpDownSSSB.Hide()
+
+        DomainUpDownMLSB.Hide()
+
+        DomainUpDownSLSB.Hide()
+    End Sub
+
+
+
+    Private Sub PictureBoxAirSB_Click(sender As Object, e As EventArgs) Handles PictureBoxAirSB.Click
+        LabelTempASB.Show()
+        NumericUpDownASB.Show()
+
+    End Sub
+
+
+    Private Sub PictureBoxTVSBClick(sender As Object, e As EventArgs) Handles PictureBoxTVSB.Click
+
+
+        DomainUpDownTVSB.Show()
+
+    End Sub
+
+    Private Sub PictureBoxSSSB_Click(sender As Object, e As EventArgs) Handles PictureBoxSSSB.Click
+
+
+        DomainUpDownSSSB.Show()
+
+    End Sub
+
+    Private Sub PictureBoxMainlightsSB_Click(sender As Object, e As EventArgs) Handles PictureBoxMainLightsSB.Click
+
+
+        DomainUpDownMLSB.Show()
+
+    End Sub
+
+    Private Sub PictureBoxSeclightsSB_Click(sender As Object, e As EventArgs) Handles PictureBoxSeclightsSB.Click
+
+
+        DomainUpDownSLSB.Show()
+
+    End Sub
+
+    Private Sub PictureBoxFirePlaceSB_Click(sender As Object, e As EventArgs) Handles PictureBoxFPSB.Click
+
+
+        DomainUpDownFPSB.Show()
+
+    End Sub
+
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBoxCasPro.Show()
+
+    End Sub
+
+
+
+
+
+    Private Sub ExitControlerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitControlerToolStripMenuItem.Click
+        Me.Hide()
+
+    End Sub
+
+
+
+    Private Sub ContactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactToolStripMenuItem.Click
+        FormContact.ButtonBackC2.Enabled = True
+        FormContact.ButtonBackC2.BringToFront()
+        FormContact.ButtonBackC.Enabled = False
+        FormContact.ButtonBackC.SendToBack()
+        FormContact.Show()
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = False
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.ForeColor = Color.DimGray
+        FormDungeonControl.TextBox1.Text = "Usename"
+        FormDungeonControl.TextBox2.Text = "Password"
+        FormDungeonControl.TextBox2.UseSystemPasswordChar = True
+        FormDungeonControl.TextBoxT.Text = ""
+        FormMainMenu.TextBoxName.Text = ""
+        FormDungeonControl.Refresh()
+        FormDungeonControl.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    End Sub
+End Class
